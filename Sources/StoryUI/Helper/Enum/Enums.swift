@@ -17,6 +17,7 @@ public enum StoryType: Equatable, Hashable {
 public enum StoryUIMediaType: Equatable {
     case image
     case video
+    case localImage
 }
 
 // MARK: - StoryUIMediaStateType

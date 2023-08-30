@@ -17,7 +17,7 @@ struct StoryDetailView: View {
     
     @State var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     @State var timerProgress: CGFloat = 0
-
+    
     
     let userClosure: UserCompletionHandler?
     
@@ -90,6 +90,11 @@ private extension StoryDetailView {
     @ViewBuilder
     func getStoryView(with index: Int, story: Story) -> some View {
         switch story.config.mediaType {
+        case .localImage:
+            Image(story.mediaURL)
+                .onAppear(){
+                    resetAVPlayer()
+                }
         case .image:
             ImageView(imageURL: story.mediaURL) {
                 start(index: index)
