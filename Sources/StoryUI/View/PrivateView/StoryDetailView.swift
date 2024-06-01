@@ -93,6 +93,7 @@ private extension StoryDetailView {
         case .localImage:
             Image(story.mediaURL)
                 .onAppear(){
+                    start(index: index)
                     resetAVPlayer()
                 }
         case .image:
